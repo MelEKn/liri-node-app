@@ -7,13 +7,6 @@ var Spotify = require("node-spotify-api");
 var spotify = new Spotify(keys.spotify);
 var axios = require("axios");
 
-// spotify.search({ type: 'track', query: 'All the Small Things' }, function(err, data) {
-//     if (err) {
-//       return console.log('Error occurred: ' + err);
-//     }
-
-//   console.log(data); 
-//   });
 
 //capture the command that the user puts in
 
@@ -47,13 +40,16 @@ switch(userCommand){
   case "movie-this": 
     console.log("Your choice was " + userCommand);
 
-    //Give an error message if the user didn't enter a movie name and end the program.
+    //If the user doesn't type a movie in, the program outputs data for the movie 'Mr. Nobody'
 
     if(searchTerm==""){
-      return console.log("Please enter the name of a movie after 'movie-this'.");
+      searchTerm="Mr.+Nobody";
     }
 
     var queryUrl = "http://www.omdbapi.com/?t=" + searchTerm + "&y=&plot=short&apikey=trilogy";
+
+    //Use 'Axios' to retrieve data from OMDB API, and output information about the movie to the user
+
     axios.get(queryUrl).then(
       function(response) {
         // console.log(response);
@@ -94,33 +90,72 @@ switch(userCommand){
       });
     break;
 
-// Use Axios to call the OMDB API using the user's search term. Use activities 17 and 18 as a reference!
 
-// Display to the user:
-  // * Title of the movie.
-  // * Year the movie came out.
-  // * IMDB Rating of the movie.
-  // * Rotten Tomatoes Rating of the movie.
-  // * Country where the movie was produced.
-  // * Language of the movie.
-  // * Plot of the movie.
-  // * Actors in the movie.
-
-  // Provide a default search if the user didn't provide an argument.
 
 // check if userCommand is "concert-this"
   case "concert-this":
       console.log("Your choice was " + userCommand);
-      break;
-  // run an API call using axios to the bands-in-town API
-  // inject the user's search term in the queryURL
+     
+      
+    // run an API call using axios to the bands-in-town API
+    // inject the user's search term in the queryURL
+
+    var queryURL =  "https://rest.bandsintown.com/artists/" + searchTerm + "/events?app_id=codingbootcamp";
+
+    axios.get(queryURL).then(
+      function(response) {
+        console.log(response.data);
+        console.log("Length is " + response.data.length);
+        console.log("The first event is :");
+        console.log(response.data[0]);
+      })
+        //Show an error message if the server responded with an error
+      
+      //Code and notes for error handling taken from "levelTwoOmdbInteractive.js" in Activity 18. 
+
+      .catch(function(error) {
+        if (error.response) {
+
+          // The request was made and the server responded with a status code
+          // that falls out of the range of 2xx
+          console.log("---------------Data---------------");
+          console.log(error.response.data);
+          console.log("---------------Status---------------");
+          console.log(error.response.status);
+          console.log("---------------Status---------------");
+          console.log(error.response.headers);
+        } else if (error.request) {
+          // The request was made but no response was received
+          // `error.request` is an object that comes back with details pertaining to the error that occurred.
+          console.log(error.request);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.log("Error", error.message);
+        }
+        console.log(error.config);
+      });
 
   // Display name of venue, venue location, and the date of the event 
   // Format the date of the event to be MM/DD/YYYY (look at the moment node package documentation!)
+      break;
 
   // check if userCommand is "spotify-this-song"
   case "spotify-this-song":
     console.log("Your choice was " + userCommand);
+    spotify.search({ type: 'track', query: searchTerm}, function(err, data) {
+      if (err) {
+        return console.log('Error occurred: ' + err);
+      } 
+    //  console.log(data.tracks.items);
+
+//I can 't find what the endpoints are! The ones referenced on the Spotify website don't seem to be the same as what the node spotify api returns, it doesn't talk about data.tracks.items etc at all, and I can't figure out how they intersect
+
+    //console.log("Artist: ");
+    });
+    
+  
+    
+  
     break;
 // Using Spotify Node package info and documentation, make a call to the Spotify API using the user's search term
 
