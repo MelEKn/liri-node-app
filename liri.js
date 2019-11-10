@@ -108,6 +108,45 @@ switch(userCommand){
         console.log("Length is " + response.data.length);
         console.log("The first event is :");
         console.log(response.data[0]);
+
+        var numEvents = response.data.length;
+        console.log("numEvents is " + numEvents);
+        // console.log(response);
+        // if(numEvents==0){
+        //   return console.log("There are no upcoming concerts for " + searchTerm);
+        // }
+        if(response.data[0]=="\n{warn=Not found}\n"){
+          console.log("This if statement was triggered");
+        }
+        console.log("response.data[0] is " + response.data[0]);
+
+        var numResults = 0;
+
+        //If there are any results for venues, but fewer than 5, then the app should display as many events as there are
+
+        if(response.data.length > 0 && response.data.length < 5){
+          numResults = response.data.length;
+        }
+        else{
+
+        //if there are more than 5 events, the app will only display 5.
+
+          numResults = 5;
+        }
+
+        console.log("numResults is " + numResults);
+
+        //display up to 5 upcoming shows
+
+        for(var i=0; i<numResults; i++){
+          var j=i+1;
+          // console.log("Venue " + j + " is:");
+          // console.log(response.data[i]);
+          console.log("Venue: " + response.data[i].venue.name);
+          console.log("Location: " + response.data[i].venue.city + ", " + response.data[i].venue.country);
+          console.log("Date: " + response.data[i].datetime);
+          console.log(" ------------------- ");
+        }
       })
         //Show an error message if the server responded with an error
       
