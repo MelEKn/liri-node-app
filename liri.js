@@ -46,6 +46,52 @@ switch(userCommand){
 // check if userCommand is "movie-this"
   case "movie-this": 
     console.log("Your choice was " + userCommand);
+
+    //Give an error message if the user didn't enter a movie name and end the program.
+
+    if(searchTerm==""){
+      return console.log("Please enter the name of a movie after 'movie-this'.");
+    }
+
+    var queryUrl = "http://www.omdbapi.com/?t=" + searchTerm + "&y=&plot=short&apikey=trilogy";
+    axios.get(queryUrl).then(
+      function(response) {
+        // console.log(response);
+        console.log("Title: " + response.data.Title);
+        console.log("Release Year: " + response.data.Year);
+        console.log("IMDB Rating: " + response.data.imdbRating);
+        console.log("Rotten Tomatoes Rating: " + response.data.Ratings[1].Value);
+        console.log("Country: " + response.data.Country);
+        console.log("Language: " + response.data.Language);
+        console.log("Plot: " + response.data.Plot);
+        console.log("Actors: " + response.data.Actors);
+      })
+
+      //Show an error message if the server responded with an error
+      
+      //Code and notes for error handling taken from "levelTwoOmdbInteractive.js" in Activity 18. 
+
+      .catch(function(error) {
+        if (error.response) {
+
+          // The request was made and the server responded with a status code
+          // that falls out of the range of 2xx
+          console.log("---------------Data---------------");
+          console.log(error.response.data);
+          console.log("---------------Status---------------");
+          console.log(error.response.status);
+          console.log("---------------Status---------------");
+          console.log(error.response.headers);
+        } else if (error.request) {
+          // The request was made but no response was received
+          // `error.request` is an object that comes back with details pertaining to the error that occurred.
+          console.log(error.request);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.log("Error", error.message);
+        }
+        console.log(error.config);
+      });
     break;
 
 // Use Axios to call the OMDB API using the user's search term. Use activities 17 and 18 as a reference!
