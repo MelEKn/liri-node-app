@@ -7,6 +7,8 @@ var Spotify = require("node-spotify-api");
 var spotify = new Spotify(keys.spotify);
 var axios = require("axios");
 
+var moment = require("moment");
+
 
 //capture the command that the user puts in
 
@@ -186,6 +188,7 @@ switch(userCommand){
         return console.log('Error occurred: ' + err);
       } 
     //  console.log(data.tracks.items);
+    console.log(data.tracks.items[0].album.artists[0].name);
 
 //I can 't find what the endpoints are! The ones referenced on the Spotify website don't seem to be the same as what the node spotify api returns, it doesn't talk about data.tracks.items etc at all, and I can't figure out how they intersect
 
