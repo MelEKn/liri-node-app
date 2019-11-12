@@ -1,8 +1,6 @@
 require("dotenv").config();
 var keys = require("./keys.js");
 // var Spotify = require('node-spotify-api');
-console.log("This is keys:");
-console.log(keys);
 var Spotify = require("node-spotify-api");
 var spotify = new Spotify(keys.spotify);
 var axios = require("axios");
@@ -198,15 +196,19 @@ function concertSearch(userCommand, searchTerm){
 
   var queryURL = "https://rest.bandsintown.com/artists/" + searchTerm + "/events?app_id=codingbootcamp";
 
+
   axios.get(queryURL).then(
     function (response) {
-      console.log(response.data);
-      console.log("Length is " + response.data.length);
-      console.log("The first event is :");
-      console.log(response.data[0]);
+      //  console.log("response.data.length is " + response.data.len )
+
+       if(response.data.length==0){
+         return console.log("That band has no shows coming up! Please try a different band.");
+       }
+      // console.log("Length is " + response.data.length);
+      // console.log("The first event is :");
+      // console.log(response.data[0]);
 
       var numEvents = response.data.length;
-      console.log("numEvents is " + numEvents);
       // console.log(response);
       // if(numEvents==0){
       //   return console.log("There are no upcoming concerts for " + searchTerm);
