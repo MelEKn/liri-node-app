@@ -141,9 +141,7 @@ switch (userCommand) {
 
         console.log("numResults is " + numResults);
 
-        //display up to 5 upcoming shows
-
-        //create string to store the output
+        //create string to store the output of the next 5 shows
 
         var output = "";
 
@@ -176,8 +174,7 @@ switch (userCommand) {
 
       })
       //Show an error message if the server responded with an error
-
-      //Code and notes for error handling taken from "levelTwoOmdbInteractive.js" in Activity 18. 
+      //(Code and notes for error handling taken from "levelTwoOmdbInteractive.js" in Activity 18. )
 
       .catch(function (error) {
         if (error.response) {
@@ -212,8 +209,28 @@ switch (userCommand) {
       if (err) {
         return console.log('Error occurred: ' + err);
       }
-      //  console.log(data.tracks.items);
-      console.log(data.tracks.items[0].album.artists[0].name);
+        // console.log(data.tracks.items[0]);
+
+       //create string to store the output of the artist, song name,  a preview link of the song from Spotify, and the album that the song is from
+
+      var output = "";
+
+      output += "Artist: " + data.tracks.items[0].album.artists[0].name + "\n";
+      output += "Song: " + data.tracks.items[0].name + "\n";
+      output += "Preview: " + data.tracks.items[0].preview_url + "\n";
+      output += "Album: "  + data.tracks.items[0].album.name + "\n";
+
+      console.log(output);
+
+      fs.appendFile("log.txt", userCommand + " " + searchTerm + ":\n\n" + output + "\n", function(err) {
+        if (err) {
+          return console.log(err);
+        }
+      });
+
+
+
+
 
       //I can 't find what the endpoints are! The ones referenced on the Spotify website don't seem to be the same as what the node spotify api returns, it doesn't talk about data.tracks.items etc at all, and I can't figure out how they intersect
 
