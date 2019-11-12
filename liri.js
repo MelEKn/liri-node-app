@@ -57,15 +57,32 @@ switch (userCommand) {
 
     axios.get(queryUrl).then(
       function (response) {
-        // console.log(response);
-        console.log("Title: " + response.data.Title);
-        console.log("Release Year: " + response.data.Year);
-        console.log("IMDB Rating: " + response.data.imdbRating);
-        console.log("Rotten Tomatoes Rating: " + response.data.Ratings[1].Value);
-        console.log("Country: " + response.data.Country);
-        console.log("Language: " + response.data.Language);
-        console.log("Plot: " + response.data.Plot);
-        console.log("Actors: " + response.data.Actors);
+
+        //create string to store the output of the movie info
+
+        var output = "";
+
+        output += "Title: " + response.data.Title + "\n";
+        output += "Release Year: " + response.data.Year + "\n";
+        output += "IMDB Rating: " + response.data.imdbRating + "\n";
+        output += "Rotten Tomatoes Rating: " + response.data.Ratings[1].Value + "\n";
+        output += "Country: "  + response.data.Country + "\n";
+        output += "Language: "  + response.data.Language + "\n";
+        output += "Plot: "  + response.data.Plot + "\n";
+        output += "Actors: "  + response.data.Actors + "\n";
+  
+        //Outputs relevant information about movie to the user
+  
+        console.log(output);
+  
+        //sends output to the log.txt file
+  
+        fs.appendFile("log.txt", userCommand + " " + searchTerm + ":\n\n" + output + "\n", function(err) {
+          if (err) {
+            return console.log(err);
+          }
+        });
+
       })
 
       //Show an error message if the server responded with an error
@@ -220,7 +237,11 @@ switch (userCommand) {
       output += "Preview: " + data.tracks.items[0].preview_url + "\n";
       output += "Album: "  + data.tracks.items[0].album.name + "\n";
 
+      //Outputs relevant information about the song to the user
+
       console.log(output);
+
+      //sends output to the log.txt file
 
       fs.appendFile("log.txt", userCommand + " " + searchTerm + ":\n\n" + output + "\n", function(err) {
         if (err) {
@@ -230,11 +251,6 @@ switch (userCommand) {
 
 
 
-
-
-      //I can 't find what the endpoints are! The ones referenced on the Spotify website don't seem to be the same as what the node spotify api returns, it doesn't talk about data.tracks.items etc at all, and I can't figure out how they intersect
-
-      //console.log("Artist: ");
     });
 
 
