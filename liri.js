@@ -38,7 +38,6 @@ for (var i = 3; i < nodeArgs.length; i++) {
 
 // Make a switch statement for the four commands. The default case should tell the user to try again.
 
-console.log("Directly before the switch statement, userCommand is " + userCommand);
 
 switch (userCommand) {
   // check if userCommand is "movie-this"
@@ -73,7 +72,6 @@ switch (userCommand) {
   // Make the corresponding API call depending on what the command is.
 
   case "do-what-it-says":
-      console.log("Your choice was " + userCommand);
       fs.readFile("random.txt", "utf8", function (err, what) {
         if (err) {
           return console.log(err);
@@ -83,12 +81,10 @@ switch (userCommand) {
         what = what.split(",");
       
         userCommand = what[0];
-        console.log("right after 'userCommand = what[0]', userCommand is " + userCommand);
-        console.log("right after 'userCommand = what[0]', what[0] is " + what[0]);
         searchTerm = what[1];
-        console.log("userCommand is " + userCommand);
-        console.log("searchTerm is " + searchTerm);
-
+        console.log("From random.txt, the request is to " + userCommand + " " + searchTerm);
+  
+       
         switch (userCommand) {
           case "movie-this":
             movieSearch(userCommand, searchTerm);
@@ -100,9 +96,6 @@ switch (userCommand) {
             spotifySearch(userCommand, searchTerm);
             break;
         }
-
-
-      
       });
     
 
@@ -116,13 +109,15 @@ switch (userCommand) {
 
   //otherwise, display message to the user to try again
   default:
-    console.log("Unrecognized command, please try again with a command of 'concert-this', 'spotify-this-song', 'movie-this', or 'do-what-it'says'.");
+    if(userCommand!="do-what-it-says"){
+      console.log("Unrecognized command, please try again with a command of 'concert-this', 'spotify-this-song', 'movie-this', or 'do-what-it-says'.");
+    }
 }
 
 
 
 function movieSearch(userCommand, searchTerm) {
-  console.log("Your choice was " + userCommand);
+  // console.log("Your choice was " + userCommand);
 
   //If the user doesn't type a movie in, the program outputs data for the movie 'Mr. Nobody'
 
@@ -195,7 +190,7 @@ function movieSearch(userCommand, searchTerm) {
 function concertSearch(userCommand, searchTerm){
 
     
-  console.log("Your choice was " + userCommand);
+  // console.log("Your choice was " + userCommand);
 
 
   // run an API call using axios to the bands-in-town API
@@ -219,7 +214,7 @@ function concertSearch(userCommand, searchTerm){
       if (response.data[0] == "\n{warn=Not found}\n") {
         console.log("This if statement was triggered");
       }
-      console.log("response.data[0] is " + response.data[0]);
+      // console.log("response.data[0] is " + response.data[0]);
 
       var numResults = 0;
 
@@ -235,7 +230,7 @@ function concertSearch(userCommand, searchTerm){
         numResults = 5;
       }
 
-      console.log("numResults is " + numResults);
+      // console.log("numResults is " + numResults);
 
       //create string to store the output of the next 5 shows
 
@@ -307,7 +302,7 @@ function concertSearch(userCommand, searchTerm){
   // * The album that the song is from
 
 function spotifySearch(userCommand, searchTerm){
-  console.log("Your choice was " + userCommand);
+  // console.log("Your choice was " + userCommand);
   spotify.search({ type: 'track', query: searchTerm }, function (err, data) {
     if (err) {
       return console.log('Error occurred: ' + err);
