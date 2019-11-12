@@ -9,6 +9,9 @@ var axios = require("axios");
 
 var moment = require("moment");
 
+// Load the fs package to read and write
+var fs = require("fs");
+
 
 //capture the command that the user puts in
 
@@ -214,6 +217,23 @@ switch(userCommand){
 // check if userCommand is "do-what-it-says" (DO THIS PART OF THE ASSIGNMENT ONLY IF THE OTHER THREE API CALLS WORK WELL!)
 case "do-what-it-says":
     console.log("Your choice was " + userCommand);
+    fs.readFile("random.txt", "utf8", function(err, what){
+      if (err) {
+        return console.log(err);
+      }
+  
+      // Break down all the numbers inside
+      what = what.split(",");
+
+      userCommand = what[0];
+      searchTerm = what[1];
+      console.log("userCommand is " + userCommand);
+      console.log("searchTerm is " + searchTerm);
+
+    });
+
+    
+
     break;
  // Use "fs" to read the random.txt file (hint, you will need to require fs! Look at activities 12 and 13)
   // The command will be whatever is before the comma. The search term will be whatever is after the comma.
