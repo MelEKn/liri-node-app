@@ -3,10 +3,10 @@ Liri Node App Project
 
 The Liri Node App Project is a command-line node application. When running the program, the user can use one of four commands: 
 
-"concert-this"
-"spotify-this-song"
-"movie-this"
-"do-what-it-says"
+*"concert-this"
+*"spotify-this-song"
+*"movie-this"
+*"do-what-it-says"
 
 For "concert-this", the user includes after that command the name of a band that is currently touring. The application uses the "Bands in Town" API to tell the user that band's next 5 shows: their venue, location, and date. This information is then logged to log.txt. 
 
