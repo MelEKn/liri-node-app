@@ -15,7 +15,7 @@ For "spotify-this-song", the user enters the name of a song. The app tells the u
 For "movie-this", the user enters the name of a movie, and the app tells the user the movie's Title, Release Year, Country, Language, Plot, and Actors. This information is also logged to log.txt. 
 
 Here is an image of the app providing this information for 3 above queries:
-![commands-demo image](/images.liri-image2.JPG)
+![commands-demo image](/images/liri-image2.JPG)
 
 And here are video links demonstrating a user making three relevant requests and the application's output:
 https://drive.google.com/file/d/1cwSt66EaiWiTEc9P3IyqlJpznntjO0uR/view?usp=sharing
