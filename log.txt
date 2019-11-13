@@ -1,93 +1,4 @@
-spotify-this-song Yesterday:
-
-Artist: The Beatles
-Song: Yesterday - Remastered 2009
-Preview: null
-Album: Help! (Remastered)
-
-spotify-this-song Yesterday:
-
-Artist: The Beatles
-Song: Yesterday - Remastered 2009
-Preview: null
-Album: Help! (Remastered)
-
-movie-this The+Sound+of+Music:
-
-Title: The Sound of Music
-Release Year: 1965
-IMDB Rating: 8.0
-Rotten Tomatoes Rating: 84%
-Country: USA
-Language: English, German
-Plot: A woman leaves an Austrian convent to become a governess to the children of a Naval officer widower.
-Actors: Julie Andrews, Christopher Plummer, Eleanor Parker, Richard Haydn
-
-concert-this The+Libertines:
-
-Venue: Cirque Royal
-Location: Bruxelles - Brussel, Belgium
-Date: 11/18/2019
- --------------- 
-
-Venue: TivoliVredenburg
-Location: Utrecht, Netherlands
-Date: 11/20/2019
- --------------- 
-
-Venue: TivoliVredenburg
-Location: Utrecht, Netherlands
-Date: 11/21/2019
- --------------- 
-
-Venue: O2 Academy Bournemouth
-Location: Bournemouth, United Kingdom
-Date: 12/03/2019
- --------------- 
-
-Venue: O2 Academy Leeds
-Location: Leeds, United Kingdom
-Date: 12/04/2019
- --------------- 
-
-spotify-this-song "I Want it That Way":
-
-Artist: Backstreet Boys
-Song: I Want It That Way
-Preview: https://p.scdn.co/mp3-preview/e72a05dc3f69c891e3390c3ceaa77fad02f6b5f6?cid=9a35b8b3284f4da9adcea0cc278f3f88
-Album: The Hits--Chapter One
-
-spotify-this-song For+The+Girl:
-
-Artist: Greg Bates
-Song: Did It For The Girl
-Preview: null
-Album: Greg Bates EP
-
-spotify-this-song Flathead:
-
-Artist: The Fratellis
-Song: Flathead
-Preview: null
-Album: Costello Music (US Version)
-
-movie-this Labyrinth:
-
-Title: Labyrinth
-Release Year: 1986
-IMDB Rating: 7.4
-Rotten Tomatoes Rating: 70%
-Country: UK, USA
-Language: English
-Plot: Sixteen-year-old Sarah (Jennifer Connelly) is given thirteen hours to solve a labyrinth and rescue her baby brother Toby (Toby Froud) when her wish for him to be taken away is granted by the Goblin King Jareth (David Bowie).
-Actors: David Bowie, Jennifer Connelly, Toby Froud, Shelley Thompson
-
 concert-this Vampire+Weekend:
-
-Venue: O2 Academy Birmingham
-Location: Birmingham, United Kingdom
-Date: 11/11/2019
- --------------- 
 
 Venue: Alexandra Palace
 Location: London, United Kingdom
@@ -107,6 +18,11 @@ Date: 11/16/2019
 Venue: Ancienne Belgique
 Location: Bruxelles, Belgium
 Date: 11/18/2019
+ --------------- 
+
+Venue: AFAS Live
+Location: Amsterdam, Netherlands
+Date: 11/19/2019
  --------------- 
 
 spotify-this-song Sing+Me+Spanish+Techno:
@@ -137,4 +53,48 @@ Country: USA
 Language: English
 Plot: A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.
 Actors: Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss, Hugo Weaving
+spotify-this-song The+Bleeding+Heart+Show:
+
+Artist: The New Pornographers
+Song: The Bleeding Heart Show
+Preview: https://p.scdn.co/mp3-preview/1e7fbaf92d065bbf042072a4dda64ae6f30fd6bd?cid=9a35b8b3284f4da9adcea0cc278f3f88
+Album: Twin Cinema
+
+movie-this Dark+Crystal:
+
+Title: The Dark Crystal
+Release Year: 1982
+IMDB Rating: 7.2
+Rotten Tomatoes Rating: 79%
+Country: USA, UK
+Language: English
+Plot: On another planet in the distant past, a Gelfling embarks on a quest to find the missing shard of a magical crystal, and so restore order to his world.
+Actors: Jim Henson, Kathryn Mullen, Frank Oz, Dave Goelz
+
+concert-this Blue+Oyster+Cult:
+
+Venue: Ferg's Sports Bar & Grill
+Location: St. Petersburg, United States
+Date: 11/16/2019
+ --------------- 
+
+Venue: Tangier
+Location: Akron, United States
+Date: 11/29/2019
+ --------------- 
+
+Venue: Valley Forge Casino Resort
+Location: King Of Prussia, United States
+Date: 11/30/2019
+ --------------- 
+
+Venue: Virginia Street Brewhouse
+Location: Reno, United States
+Date: 12/05/2019
+ --------------- 
+
+Venue: The Canyon Montclair
+Location: Montclair, United States
+Date: 12/06/2019
+ --------------- 
 
