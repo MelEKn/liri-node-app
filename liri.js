@@ -130,6 +130,7 @@ function movieSearch(userCommand, searchTerm) {
   axios.get(queryUrl).then(
     function (response) {
 
+
       //create string to store the output of the movie info
 
       var output = "";
